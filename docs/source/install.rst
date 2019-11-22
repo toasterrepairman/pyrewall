@@ -1,7 +1,11 @@
 Installation
 ============
 
-Huh
----
+From Python
+-----------
 
-What even goes here?
+To install Pyrewall via Python's built-in package installer, enter the following into your terminal.
+
+.. code-block:: bash
+
+    sudo pip3 install pyrewall

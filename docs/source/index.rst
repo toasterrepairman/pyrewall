@@ -1,6 +1,6 @@
 .. _Privex Pyrewall documentation:
 
-Privex Python Helpers's documentation
+Privex Privex documentation
 =================================================
 
 .. image:: https://www.privex.io/static/assets/svg/brand_text_nofont.svg

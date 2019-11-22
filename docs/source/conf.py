@@ -22,7 +22,7 @@ sys.path.insert(0, os.path.abspath('../..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'Privex Python Helpers'
+project = 'Privex Pyrewall'
 copyright = '2019, Privex Inc.'
 author = 'Privex Inc.'
 
