@@ -97,7 +97,7 @@ html_theme_path = ["_themes", ]
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'PrivexHelpersDoc'
+htmlhelp_basename = 'PrivexPyrewallDoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -124,7 +124,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'PrivexHelpers.tex', 'Privex Python Helpers Documentation',
+    (master_doc, 'PrivexPyrewall.tex', 'Privex Pyrewall Documentation',
      'Privex Inc., Chris (Someguy123)', 'manual'),
 ]
 
@@ -134,7 +134,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'privexhelpers', 'Privex Python Helpers Documentation',
+    (master_doc, 'privexpyrewall', 'Privex Pyrewall Documentation',
      [author], 1)
 ]
 
