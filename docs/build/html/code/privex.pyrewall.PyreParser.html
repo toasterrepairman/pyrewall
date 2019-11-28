@@ -1,0 +1,445 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PyreParser &mdash; Privex Pyrewall  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="RuleBuilder" href="privex.pyrewall.RuleBuilder.html" />
+    <link rel="prev" title="PyreLexer" href="privex.pyrewall.PyreLexer.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #473E53" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Privex Pyrewall
+          
+
+          
+            
+            <img src="../_static/brand_text_nofont.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Main:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Privex Privex documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#from-python">From Python</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Code Documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Code Docs for each helper module</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#modules">Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="privex.pyrewall.PyreLexer.html">PyreLexer</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PyreParser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="privex.pyrewall.RuleBuilder.html">RuleBuilder</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PyreParser</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#privex-pyrewall">privex.pyrewall</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="types.html">types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#testdata">testdata</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Privex Pyrewall</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Code Docs for each helper module</a> &raquo;</li>
+        
+      <li>PyreParser</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/code/privex.pyrewall.PyreParser.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pyreparser">
+<h1>PyreParser<a class="headerlink" href="#pyreparser" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="privex.pyrewall.PyreParser">
+<em class="property">class </em><code class="sig-prename descclassname">privex.pyrewall.</code><code class="sig-name descname">PyreParser</code><span class="sig-paren">(</span><em class="sig-param">table='filter'</em>, <em class="sig-param">chains: dict = None</em>, <em class="sig-param">**rp_args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/privex/pyrewall/PyreParser.html#PyreParser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#privex.pyrewall.PyreParser" title="Permalink to this definition">¶</a></dt>
+<dd><p>PyreParser - The highest level parser class - directly parses <code class="docutils literal notranslate"><span class="pre">.pyre</span></code> files and generates iptables compatible
+configuration lines.</p>
+<p>The class is a layer above <code class="xref py py-class docutils literal notranslate"><span class="pre">RuleParser</span></code>, PyreParser handles special “control” directives such as
+<code class="docutils literal notranslate"><span class="pre">&#64;import</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;chain</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;table</span></code> and generates entire iptables configurations, not just single lines.</p>
+<p><strong>Basic usage</strong></p>
+<p>Import required classes/functions</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">privex.pyrewall</span> <span class="k">import</span> <span class="n">PyreParser</span><span class="p">,</span> <span class="n">find_file</span><span class="p">,</span> <span class="n">conf</span>
+</pre></div>
+</div>
+<p>Get the absolute path for your Pyre rules file, initialise PyreParser, and use <a class="reference internal" href="#privex.pyrewall.PyreParser.parse_file" title="privex.pyrewall.PyreParser.parse_file"><code class="xref py py-meth docutils literal notranslate"><span class="pre">parse_file()</span></code></a> to
+load the file and parse the Pyre rules.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_config</span> <span class="o">=</span> <span class="n">find_file</span><span class="p">(</span><span class="s1">&#39;test.pyre&#39;</span><span class="p">)</span>   <span class="c1"># Get abs path for the ``.pyre`` file in search dirs using find_file</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">PyreParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v4_rules</span><span class="p">,</span> <span class="n">v6_rules</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">parse_file</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">my_config</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Loop over the IPv4 and IPv6 rules and output them in your preferred format.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">v4_rules</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">v6_rules</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="privex.pyrewall.PyreParser.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">table='filter'</em>, <em class="sig-param">chains: dict = None</em>, <em class="sig-param">**rp_args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/privex/pyrewall/PyreParser.html#PyreParser.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#privex.pyrewall.PyreParser.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>PyreParser - The highest level parser class - directly parses <code class="docutils literal notranslate"><span class="pre">.pyre</span></code> files and generates iptables compatible
+configuration lines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – The default table to use if not specified in the rules file, e.g. <code class="docutils literal notranslate"><span class="pre">filter</span></code> or <code class="docutils literal notranslate"><span class="pre">nat</span></code></p></li>
+<li><p><strong>chains</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – Optionally override the default chains used. Defaults to <a class="reference internal" href="#privex.pyrewall.PyreParser.DEFAULT_CHAINS" title="privex.pyrewall.PyreParser.DEFAULT_CHAINS"><code class="xref py py-attr docutils literal notranslate"><span class="pre">DEFAULT_CHAINS</span></code></a></p></li>
+<li><p><strong>rp_args</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code>([table, chains])</p></td>
+<td><p>PyreParser - The highest level parser class - directly parses <code class="docutils literal notranslate"><span class="pre">.pyre</span></code> files and generates iptables compatible configuration lines.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">commit</span></code>(*args)</p></td>
+<td><p>After an individual table has been parsed, <code class="xref py py-func docutils literal notranslate"><span class="pre">commit()</span></code> is called, which:</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">import_file</span></code>(*args)</p></td>
+<td><p>Handler for <code class="docutils literal notranslate"><span class="pre">&#64;import</span> <span class="pre">[file]</span></code> directive in <code class="docutils literal notranslate"><span class="pre">.pyre</span></code> files.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_file</span></code>(path)</p></td>
+<td><p>Parse a given <code class="docutils literal notranslate"><span class="pre">.pyre</span></code> file (absolute path!) into IPTables rules.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_lines</span></code>(lines)</p></td>
+<td><p>Takes a <code class="docutils literal notranslate"><span class="pre">List[str]</span></code> of Pyre rules, and parses them into a list of IPv4 / IPv6 iptables-restore rules.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_chain</span></code>(*args)</p></td>
+<td><p>Handler for <code class="docutils literal notranslate"><span class="pre">&#64;chain</span> <span class="pre">[chain_name]</span> <span class="pre">(policy)</span> <span class="pre">(packets)</span></code> directive in <code class="docutils literal notranslate"><span class="pre">.pyre</span></code> files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_table</span></code>(*args)</p></td>
+<td><p>Handler for <code class="docutils literal notranslate"><span class="pre">&#64;table</span> <span class="pre">[table_name]</span></code> directive in <code class="docutils literal notranslate"><span class="pre">.pyre</span></code> files.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">DEFAULT_CHAINS</span></code></p></td>
+<td><p>Alias for <code class="xref py py-attr docutils literal notranslate"><span class="pre">privex.pyrewall.conf.DEFAULT_CHAINS</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">control_handlers</span></code></p></td>
+<td><p>Maps each Pyre control directive such as <code class="docutils literal notranslate"><span class="pre">&#64;table</span></code> to it’s appropriate handling function</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">strict</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="privex.pyrewall.PyreParser.DEFAULT_CHAINS">
+<code class="sig-name descname">DEFAULT_CHAINS</code><em class="property"> = {'filter': {'FORWARD': ['ACCEPT', '[0:0]'], 'INPUT': ['ACCEPT', '[0:0]'], 'OUTPUT': ['ACCEPT', '[0:0]']}, 'nat': {'INPUT': ['ACCEPT', '[0:0]'], 'OUTPUT': ['ACCEPT', '[0:0]'], 'POSTROUTING': ['ACCEPT', '[0:0]'], 'PREROUTING': ['ACCEPT', '[0:0]']}}</em><a class="headerlink" href="#privex.pyrewall.PyreParser.DEFAULT_CHAINS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <code class="xref py py-attr docutils literal notranslate"><span class="pre">privex.pyrewall.conf.DEFAULT_CHAINS</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="privex.pyrewall.PyreParser.cache">
+<code class="sig-name descname">cache</code><em class="property"> = None</em><a class="headerlink" href="#privex.pyrewall.PyreParser.cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contains <code class="docutils literal notranslate"><span class="pre">List[str]</span></code>’s of the currently generated iptables rules per IP version e.g. <code class="docutils literal notranslate"><span class="pre">self.cache.v4</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="privex.pyrewall.PyreParser.chains">
+<code class="sig-name descname">chains</code><em class="property"> = None</em><a class="headerlink" href="#privex.pyrewall.PyreParser.chains" title="Permalink to this definition">¶</a></dt>
+<dd><p>A dictionary mapping chain names such as <code class="docutils literal notranslate"><span class="pre">INPUT</span></code> to a list of arguments, e.g. <code class="docutils literal notranslate"><span class="pre">['ACCEPT',</span> <span class="pre">'[0:0]']</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="privex.pyrewall.PyreParser.commit">
+<code class="sig-name descname">commit</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/privex/pyrewall/PyreParser.html#PyreParser.commit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#privex.pyrewall.PyreParser.commit" title="Permalink to this definition">¶</a></dt>
+<dd><p>After an individual table has been parsed, <code class="xref py py-func docutils literal notranslate"><span class="pre">commit()</span></code> is called, which:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Prepends the <code class="docutils literal notranslate"><span class="pre">*table</span></code> and chain definition headers and appends the <code class="docutils literal notranslate"><span class="pre">COMMIT`</span></code> statement to the rules</p></li>
+<li><p>Flushes the current IPv4 and IPv6 rules from <a class="reference internal" href="#privex.pyrewall.PyreParser.cache" title="privex.pyrewall.PyreParser.cache"><code class="xref py py-attr docutils literal notranslate"><span class="pre">cache</span></code></a> into <a class="reference internal" href="#privex.pyrewall.PyreParser.output" title="privex.pyrewall.PyreParser.output"><code class="xref py py-attr docutils literal notranslate"><span class="pre">output</span></code></a></p></li>
+<li><p>Sets <a class="reference internal" href="#privex.pyrewall.PyreParser.chains" title="privex.pyrewall.PyreParser.chains"><code class="xref py py-attr docutils literal notranslate"><span class="pre">chains</span></code></a> to match the known chains for the current table, in-case the table has changed.</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="privex.pyrewall.PyreParser.control_handlers">
+<code class="sig-name descname">control_handlers</code><em class="property"> = {'&#64;chain': &lt;function PyreParser.set_chain&gt;, '&#64;import': &lt;function PyreParser.import_file&gt;, '&#64;table': &lt;function PyreParser.set_table&gt;}</em><a class="headerlink" href="#privex.pyrewall.PyreParser.control_handlers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maps each Pyre control directive such as <code class="docutils literal notranslate"><span class="pre">&#64;table</span></code> to it’s appropriate handling function</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="privex.pyrewall.PyreParser.import_file">
+<code class="sig-name descname">import_file</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/privex/pyrewall/PyreParser.html#PyreParser.import_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#privex.pyrewall.PyreParser.import_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handler for <code class="docutils literal notranslate"><span class="pre">&#64;import</span> <span class="pre">[file]</span></code> directive in <code class="docutils literal notranslate"><span class="pre">.pyre</span></code> files.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="privex.pyrewall.PyreParser.output">
+<code class="sig-name descname">output</code><em class="property"> = None</em><a class="headerlink" href="#privex.pyrewall.PyreParser.output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contains <code class="docutils literal notranslate"><span class="pre">List[str]</span></code>’s of the final generated iptables rules per IP version e.g. <code class="docutils literal notranslate"><span class="pre">self.output.v4</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="privex.pyrewall.PyreParser.parse_file">
+<code class="sig-name descname">parse_file</code><span class="sig-paren">(</span><em class="sig-param">path: str</em><span class="sig-paren">)</span> &#x2192; Tuple[List[str], List[str]]<a class="reference internal" href="../_modules/privex/pyrewall/PyreParser.html#PyreParser.parse_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#privex.pyrewall.PyreParser.parse_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse a given <code class="docutils literal notranslate"><span class="pre">.pyre</span></code> file (absolute path!) into IPTables rules.</p>
+<p>Returns the IPTables rules as a tuple containing two <a href="#id1"><span class="problematic" id="id2">``</span></a>List[str]``s - the first containing the IPv4 rules,
+and the second containing the IPv6 rules (or an empty list if there weren’t any).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v4_rules</span><span class="p">,</span> <span class="n">v6_rules</span> <span class="o">=</span> <span class="n">PyreParser</span><span class="p">()</span><span class="o">.</span><span class="n">parse_file</span><span class="p">(</span><span class="s1">&#39;/etc/pyre/test.pyre&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">v4_rules</span><span class="p">)</span>
+<span class="go">[&#39;*filter&#39;, &#39;:INPUT DROP [0:0]&#39;, ...]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">v6_rules</span><span class="p">)</span>
+<span class="go">[&#39;*filter&#39;, &#39;:INPUT DROP [0:0]&#39;, ...]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – The absolute path to the Pyre file, e.g. <code class="docutils literal notranslate"><span class="pre">/etc/pyre/test.pyre</span></code></p>
+</dd>
+<dt class="field-even">Return tuple rules</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(v4_rules,</span> <span class="pre">v6_rules,)</span></code> Each are iptables-restore compatible rules, as a <code class="docutils literal notranslate"><span class="pre">List[str]</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="privex.pyrewall.PyreParser.parse_lines">
+<code class="sig-name descname">parse_lines</code><span class="sig-paren">(</span><em class="sig-param">lines: List[str]</em><span class="sig-paren">)</span> &#x2192; Tuple[List[str], List[str]]<a class="reference internal" href="../_modules/privex/pyrewall/PyreParser.html#PyreParser.parse_lines"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#privex.pyrewall.PyreParser.parse_lines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a <code class="docutils literal notranslate"><span class="pre">List[str]</span></code> of Pyre rules, and parses them into a list of IPv4 / IPv6 iptables-restore rules.</p>
+<p>Outputs the resulting iptables-restore rules as a tuple of <code class="docutils literal notranslate"><span class="pre">List[str]</span></code> - in the format:</p>
+<p><code class="docutils literal notranslate"><span class="pre">(v4_rules:</span> <span class="pre">List[str],</span> <span class="pre">v6_rules:</span> <span class="pre">List[str],)</span></code></p>
+<p>Basic usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;allow from 1.2.3.4/16&#39;</span><span class="p">,</span> <span class="s1">&#39;allow from 2a07:e00:abc::/48&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v4_rules</span><span class="p">,</span> <span class="n">v6_rules</span> <span class="o">=</span> <span class="n">PyreParser</span><span class="p">()</span><span class="o">.</span><span class="n">parse_lines</span><span class="p">(</span><span class="n">lines</span><span class="o">=</span><span class="n">lines</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">v4_rules</span><span class="p">)</span>
+<span class="go">[&#39;*filter&#39;, &#39;:INPUT ACCEPT [0:0]&#39;, ...]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">v6_rules</span><span class="p">)</span>
+<span class="go">[&#39;*filter&#39;, &#39;:INPUT ACCEPT [0:0]&#39;, ...]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>lines</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>]</em>) – A <code class="docutils literal notranslate"><span class="pre">List[str]</span></code> of Pyre rules to parse</p>
+</dd>
+<dt class="field-even">Return tuple rules</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(v4_rules,</span> <span class="pre">v6_rules,)</span></code> Each are iptables-restore compatible rules, as a <code class="docutils literal notranslate"><span class="pre">List[str]</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="privex.pyrewall.PyreParser.set_chain">
+<code class="sig-name descname">set_chain</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/privex/pyrewall/PyreParser.html#PyreParser.set_chain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#privex.pyrewall.PyreParser.set_chain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handler for <code class="docutils literal notranslate"><span class="pre">&#64;chain</span> <span class="pre">[chain_name]</span> <span class="pre">(policy)</span> <span class="pre">(packets)</span></code> directive in <code class="docutils literal notranslate"><span class="pre">.pyre</span></code> files.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="privex.pyrewall.PyreParser.set_table">
+<code class="sig-name descname">set_table</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/privex/pyrewall/PyreParser.html#PyreParser.set_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#privex.pyrewall.PyreParser.set_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handler for <code class="docutils literal notranslate"><span class="pre">&#64;table</span> <span class="pre">[table_name]</span></code> directive in <code class="docutils literal notranslate"><span class="pre">.pyre</span></code> files.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="privex.pyrewall.PyreParser.table">
+<code class="sig-name descname">table</code><em class="property"> = None</em><a class="headerlink" href="#privex.pyrewall.PyreParser.table" title="Permalink to this definition">¶</a></dt>
+<dd><p>The current IPTables table being used. Default: <code class="docutils literal notranslate"><span class="pre">filter</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="privex.pyrewall.RuleBuilder.html" class="btn btn-neutral float-right" title="RuleBuilder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="privex.pyrewall.PyreLexer.html" class="btn btn-neutral float-left" title="PyreLexer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Privex Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

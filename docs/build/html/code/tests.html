@@ -1,0 +1,387 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>tests &mdash; Privex Pyrewall  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #473E53" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Privex Pyrewall
+          
+
+          
+            
+            <img src="../_static/brand_text_nofont.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Main:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Privex Privex documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#from-python">From Python</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Code Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Code Docs for each helper module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#modules">Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="privex.pyrewall.PyreLexer.html">PyreLexer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="privex.pyrewall.PyreParser.html">PyreParser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="privex.pyrewall.RuleBuilder.html">RuleBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="privex.pyrewall.PyreParser.html">PyreParser</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#privex-pyrewall">privex.pyrewall</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="types.html">types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#testdata">testdata</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Privex Pyrewall</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>tests</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/code/tests.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-tests">
+<span id="tests"></span><h1>tests<a class="headerlink" href="#module-tests" title="Permalink to this headline">¶</a></h1>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#tests.TestFindFile" title="tests.TestFindFile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TestFindFile</span></code></a>([methodName])</p></td>
+<td><p>Test cases to thoroughly test absolute, relative, and flat filenames with PyreWall function <a class="reference internal" href="privex.pyrewall.core.html#privex.pyrewall.core.find_file" title="privex.pyrewall.core.find_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">privex.pyrewall.core.find_file()</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#tests.TestPyreParser" title="tests.TestPyreParser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TestPyreParser</span></code></a>([methodName])</p></td>
+<td><p>Unit testing which tests the output from parsing entire .pyre files by comparing the returned rules to expected result .v4 and .v6 files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#tests.TestRuleHandlers" title="tests.TestRuleHandlers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TestRuleHandlers</span></code></a>([methodName])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#tests.TestRuleValidation" title="tests.TestRuleValidation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TestRuleValidation</span></code></a>([methodName])</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="tests.TestFindFile">
+<em class="property">class </em><code class="sig-prename descclassname">tests.</code><code class="sig-name descname">TestFindFile</code><span class="sig-paren">(</span><em class="sig-param">methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tests.html#TestFindFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.TestFindFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test cases to thoroughly test absolute, relative, and flat filenames with PyreWall function
+<a class="reference internal" href="privex.pyrewall.core.html#privex.pyrewall.core.find_file" title="privex.pyrewall.core.find_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">privex.pyrewall.core.find_file()</span></code></a></p>
+<p>Tests both the “search paths” functionality, along with the automatic extension guessing.</p>
+<p>Dependant on the folder <code class="docutils literal notranslate"><span class="pre">testdata</span></code> which contains various empty files in a hierarchical structure designed
+for testing the search path functionality.</p>
+<dl class="method">
+<dt id="tests.TestFindFile.test_ff2_filename">
+<code class="sig-name descname">test_ff2_filename</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tests.html#TestFindFile.test_ff2_filename"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.TestFindFile.test_ff2_filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test search path with extensionless example4 in search paths (testdata/findfile2)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.TestFindFile.test_ff2_filename_find_ext_log">
+<code class="sig-name descname">test_ff2_filename_find_ext_log</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tests.html#TestFindFile.test_ff2_filename_find_ext_log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.TestFindFile.test_ff2_filename_find_ext_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test search path / extensions with finding example6 in search paths (testdata/findfile2)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.TestFindFile.test_ff2_filename_find_ext_txt">
+<code class="sig-name descname">test_ff2_filename_find_ext_txt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tests.html#TestFindFile.test_ff2_filename_find_ext_txt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.TestFindFile.test_ff2_filename_find_ext_txt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test search path / extensions with finding example5 in search paths (testdata/findfile2)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.TestFindFile.test_filename">
+<code class="sig-name descname">test_filename</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tests.html#TestFindFile.test_filename"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.TestFindFile.test_filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test search path with extensionless example1 in search paths (testdata/findfile)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.TestFindFile.test_filename_absolute">
+<code class="sig-name descname">test_filename_absolute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tests.html#TestFindFile.test_filename_absolute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.TestFindFile.test_filename_absolute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test finding absolute paths returns the correct path</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.TestFindFile.test_filename_ext_log">
+<code class="sig-name descname">test_filename_ext_log</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tests.html#TestFindFile.test_filename_ext_log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.TestFindFile.test_filename_ext_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test search path with specified extension finding example3.log in search paths (testdata/findfile)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.TestFindFile.test_filename_ext_txt_relative">
+<code class="sig-name descname">test_filename_ext_txt_relative</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tests.html#TestFindFile.test_filename_ext_txt_relative"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.TestFindFile.test_filename_ext_txt_relative" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test search path / extensions by finding relative <code class="docutils literal notranslate"><span class="pre">subdirtest/example8.txt</span></code> in search paths</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.TestFindFile.test_filename_find_ext_txt">
+<code class="sig-name descname">test_filename_find_ext_txt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tests.html#TestFindFile.test_filename_find_ext_txt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.TestFindFile.test_filename_find_ext_txt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test search path / extensions with finding example2 in search paths (testdata/findfile)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.TestFindFile.test_filename_noexist">
+<code class="sig-name descname">test_filename_noexist</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tests.html#TestFindFile.test_filename_noexist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.TestFindFile.test_filename_noexist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test non-existent search filename causes FileNotFoundError exception</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.TestFindFile.test_filename_noexist_absolute">
+<code class="sig-name descname">test_filename_noexist_absolute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tests.html#TestFindFile.test_filename_noexist_absolute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.TestFindFile.test_filename_noexist_absolute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test non-existent absolute path causes FileNotFoundError exception</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.TestFindFile.test_filename_relative">
+<code class="sig-name descname">test_filename_relative</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tests.html#TestFindFile.test_filename_relative"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.TestFindFile.test_filename_relative" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test search path with <code class="docutils literal notranslate"><span class="pre">subdirtest/example8.txt</span></code> in search paths (testdata/findfile)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="tests.TestPyreParser">
+<em class="property">class </em><code class="sig-prename descclassname">tests.</code><code class="sig-name descname">TestPyreParser</code><span class="sig-paren">(</span><em class="sig-param">methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tests.html#TestPyreParser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.TestPyreParser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unit testing which tests the output from parsing entire .pyre files by comparing the returned rules to expected
+result .v4 and .v6 files.</p>
+<p>Pyre testing configurations can be found in <code class="docutils literal notranslate"><span class="pre">testdata/configs</span></code> - Pyre configs generally end with <code class="docutils literal notranslate"><span class="pre">.pyre</span></code>, while
+the rendered outputs end in <code class="docutils literal notranslate"><span class="pre">.v4</span></code> and <code class="docutils literal notranslate"><span class="pre">.v6</span></code> respectively (unless they’re designed for testing an <code class="docutils literal notranslate"><span class="pre">&#64;import</span></code>)</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="tests.TestRuleHandlers">
+<em class="property">class </em><code class="sig-prename descclassname">tests.</code><code class="sig-name descname">TestRuleHandlers</code><span class="sig-paren">(</span><em class="sig-param">methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tests.html#TestRuleHandlers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.TestRuleHandlers" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="tests.TestRuleHandlers.setUp">
+<code class="sig-name descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tests.html#TestRuleHandlers.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.TestRuleHandlers.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.TestRuleHandlers.test_from_v4">
+<code class="sig-name descname">test_from_v4</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tests.html#TestRuleHandlers.test_from_v4"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.TestRuleHandlers.test_from_v4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that a rule with an IPv4 source address only returns a v4 rule</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.TestRuleHandlers.test_from_v6">
+<code class="sig-name descname">test_from_v6</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tests.html#TestRuleHandlers.test_from_v6"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.TestRuleHandlers.test_from_v6" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that a rule with an IPv6 source address only returns a v6 rule</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.TestRuleHandlers.test_port_handler_multi">
+<code class="sig-name descname">test_port_handler_multi</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tests.html#TestRuleHandlers.test_port_handler_multi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.TestRuleHandlers.test_port_handler_multi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test port rule parser with a multiple ports and port ranges</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.TestRuleHandlers.test_port_handler_single">
+<code class="sig-name descname">test_port_handler_single</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tests.html#TestRuleHandlers.test_port_handler_single"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.TestRuleHandlers.test_port_handler_single" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test port rule parser with a singular port</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="tests.TestRuleValidation">
+<em class="property">class </em><code class="sig-prename descclassname">tests.</code><code class="sig-name descname">TestRuleValidation</code><span class="sig-paren">(</span><em class="sig-param">methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tests.html#TestRuleValidation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.TestRuleValidation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="tests.TestRuleValidation.test_invalid_port_negative">
+<code class="sig-name descname">test_invalid_port_negative</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tests.html#TestRuleValidation.test_invalid_port_negative"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.TestRuleValidation.test_invalid_port_negative" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test valid_port raises InvalidPort with negative port -1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.TestRuleValidation.test_invalid_port_overflow">
+<code class="sig-name descname">test_invalid_port_overflow</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tests.html#TestRuleValidation.test_invalid_port_overflow"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.TestRuleValidation.test_invalid_port_overflow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test valid_port raises InvalidPort with a too high port number (65537)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.TestRuleValidation.test_invalid_port_zero">
+<code class="sig-name descname">test_invalid_port_zero</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tests.html#TestRuleValidation.test_invalid_port_zero"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.TestRuleValidation.test_invalid_port_zero" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test valid_port raises InvalidPort with port 0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.TestRuleValidation.test_valid_port">
+<code class="sig-name descname">test_valid_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tests.html#TestRuleValidation.test_valid_port"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.TestRuleValidation.test_valid_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test <a class="reference internal" href="privex.pyrewall.core.html#privex.pyrewall.core.valid_port" title="privex.pyrewall.core.valid_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">privex.pyrewall.core.valid_port()</span></code></a> with a valid string and integer</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Privex Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

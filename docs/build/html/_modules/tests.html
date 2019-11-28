@@ -1,0 +1,446 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>tests &mdash; Privex Pyrewall  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #473E53" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Privex Pyrewall
+          
+
+          
+            
+            <img src="../_static/brand_text_nofont.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Main:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Privex Privex documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#from-python">From Python</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Code Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../code/index.html">Code Docs for each helper module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../code/index.html#modules">Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../code/privex.pyrewall.PyreLexer.html">PyreLexer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../code/privex.pyrewall.PyreParser.html">PyreParser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../code/privex.pyrewall.RuleBuilder.html">RuleBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../code/privex.pyrewall.PyreParser.html">PyreParser</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../code/index.html#privex-pyrewall">privex.pyrewall</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../code/types.html">types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../code/index.html#testdata">testdata</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Privex Pyrewall</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Module code</a> &raquo;</li>
+        
+      <li>tests</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for tests</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">OrderedDict</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">abspath</span><span class="p">,</span> <span class="n">dirname</span><span class="p">,</span> <span class="n">join</span>
+
+<span class="kn">from</span> <span class="nn">privex</span> <span class="k">import</span> <span class="n">pyrewall</span>
+<span class="kn">from</span> <span class="nn">privex.pyrewall</span> <span class="k">import</span> <span class="n">find_file</span>
+
+<span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">dirname</span><span class="p">(</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+<span class="n">DIR_FF1</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">&#39;testdata&#39;</span><span class="p">,</span> <span class="s1">&#39;findfile&#39;</span><span class="p">)</span>
+<span class="n">DIR_FF2</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">&#39;testdata&#39;</span><span class="p">,</span> <span class="s1">&#39;findfile2&#39;</span><span class="p">)</span>
+<span class="n">DIR_CONF</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">&#39;testdata&#39;</span><span class="p">,</span> <span class="s1">&#39;configs&#39;</span><span class="p">)</span>
+
+<span class="n">TEST_SEARCH_PATH</span> <span class="o">=</span> <span class="p">[</span><span class="n">DIR_FF1</span><span class="p">,</span> <span class="n">DIR_FF2</span><span class="p">,</span> <span class="n">DIR_CONF</span><span class="p">]</span>
+<span class="n">TEST_SEARCH_EXT</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;.pyre&#39;</span><span class="p">,</span> <span class="s1">&#39;.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;.log&#39;</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">_find_file</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Small helper static method, simple calls find_file with the test paths/extensions automatically passed&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">pyrewall</span><span class="o">.</span><span class="n">find_file</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span> <span class="n">paths</span><span class="o">=</span><span class="n">TEST_SEARCH_PATH</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="n">TEST_SEARCH_EXT</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="TestRuleHandlers"><a class="viewcode-back" href="../code/tests.html#tests.TestRuleHandlers">[docs]</a><span class="k">class</span> <span class="nc">TestRuleHandlers</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TestRuleHandlers.setUp"><a class="viewcode-back" href="../code/tests.html#tests.TestRuleHandlers.setUp">[docs]</a>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rp</span> <span class="o">=</span> <span class="n">pyrewall</span><span class="o">.</span><span class="n">RuleParser</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="TestRuleHandlers.test_port_handler_multi"><a class="viewcode-back" href="../code/tests.html#tests.TestRuleHandlers.test_port_handler_multi">[docs]</a>    <span class="k">def</span> <span class="nf">test_port_handler_multi</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test port rule parser with a multiple ports and port ranges&quot;&quot;&quot;</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="s1">&#39;-A INPUT -p tcp -m multiport --dports 123,443,600:900,1000:2000 -j ACCEPT&#39;</span>
+
+        <span class="n">v4r</span><span class="p">,</span> <span class="n">v6r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rp</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;allow port 123,443,600-900,1000:2000&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v4r</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v6r</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">v4r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">expected</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">v6r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">expected</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestRuleHandlers.test_port_handler_single"><a class="viewcode-back" href="../code/tests.html#tests.TestRuleHandlers.test_port_handler_single">[docs]</a>    <span class="k">def</span> <span class="nf">test_port_handler_single</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test port rule parser with a singular port&quot;&quot;&quot;</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="s1">&#39;-A INPUT -p tcp --dport 800 -j ACCEPT&#39;</span>
+        <span class="n">v4r</span><span class="p">,</span> <span class="n">v6r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rp</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;allow port 800&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v4r</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v6r</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">v4r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">expected</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">v6r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">expected</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestRuleHandlers.test_from_v4"><a class="viewcode-back" href="../code/tests.html#tests.TestRuleHandlers.test_from_v4">[docs]</a>    <span class="k">def</span> <span class="nf">test_from_v4</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test that a rule with an IPv4 source address only returns a v4 rule&quot;&quot;&quot;</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="s1">&#39;-A INPUT -p tcp --dport 800 -s 1.2.3.4/32 -j ACCEPT&#39;</span>
+        <span class="n">v4r</span><span class="p">,</span> <span class="n">v6r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rp</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;allow port 800 from 1.2.3.4&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v4r</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v6r</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">v4r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">expected</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestRuleHandlers.test_from_v6"><a class="viewcode-back" href="../code/tests.html#tests.TestRuleHandlers.test_from_v6">[docs]</a>    <span class="k">def</span> <span class="nf">test_from_v6</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test that a rule with an IPv6 source address only returns a v6 rule&quot;&quot;&quot;</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="s1">&#39;-A INPUT -p tcp --dport 800 -s 2a07:e00::1/128 -j ACCEPT&#39;</span>
+        <span class="n">v4r</span><span class="p">,</span> <span class="n">v6r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rp</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;allow port 800 from 2a07:e00::1&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v4r</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v6r</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">v6r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">expected</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="TestRuleValidation"><a class="viewcode-back" href="../code/tests.html#tests.TestRuleValidation">[docs]</a><span class="k">class</span> <span class="nc">TestRuleValidation</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TestRuleValidation.test_valid_port"><a class="viewcode-back" href="../code/tests.html#tests.TestRuleValidation.test_valid_port">[docs]</a>    <span class="k">def</span> <span class="nf">test_valid_port</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test :py:func:`privex.pyrewall.core.valid_port` with a valid string and integer&quot;&quot;&quot;</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">pyrewall</span><span class="o">.</span><span class="n">valid_port</span><span class="p">(</span><span class="s1">&#39;1234&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIs</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="nb">int</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">1234</span><span class="p">)</span>
+
+        <span class="n">k</span> <span class="o">=</span> <span class="n">pyrewall</span><span class="o">.</span><span class="n">valid_port</span><span class="p">(</span><span class="mi">2345</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIs</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="nb">int</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">2345</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestRuleValidation.test_invalid_port_overflow"><a class="viewcode-back" href="../code/tests.html#tests.TestRuleValidation.test_invalid_port_overflow">[docs]</a>    <span class="k">def</span> <span class="nf">test_invalid_port_overflow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test valid_port raises InvalidPort with a too high port number (65537)&quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="n">pyrewall</span><span class="o">.</span><span class="n">InvalidPort</span><span class="p">):</span>
+            <span class="n">pyrewall</span><span class="o">.</span><span class="n">valid_port</span><span class="p">(</span><span class="s1">&#39;65537&#39;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="n">pyrewall</span><span class="o">.</span><span class="n">InvalidPort</span><span class="p">):</span>
+            <span class="n">pyrewall</span><span class="o">.</span><span class="n">valid_port</span><span class="p">(</span><span class="mi">65537</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestRuleValidation.test_invalid_port_zero"><a class="viewcode-back" href="../code/tests.html#tests.TestRuleValidation.test_invalid_port_zero">[docs]</a>    <span class="k">def</span> <span class="nf">test_invalid_port_zero</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test valid_port raises InvalidPort with port 0 &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="n">pyrewall</span><span class="o">.</span><span class="n">InvalidPort</span><span class="p">):</span>
+            <span class="n">pyrewall</span><span class="o">.</span><span class="n">valid_port</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="n">pyrewall</span><span class="o">.</span><span class="n">InvalidPort</span><span class="p">):</span>
+            <span class="n">pyrewall</span><span class="o">.</span><span class="n">valid_port</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestRuleValidation.test_invalid_port_negative"><a class="viewcode-back" href="../code/tests.html#tests.TestRuleValidation.test_invalid_port_negative">[docs]</a>    <span class="k">def</span> <span class="nf">test_invalid_port_negative</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test valid_port raises InvalidPort with negative port -1&quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="n">pyrewall</span><span class="o">.</span><span class="n">InvalidPort</span><span class="p">):</span>
+            <span class="n">pyrewall</span><span class="o">.</span><span class="n">valid_port</span><span class="p">(</span><span class="s1">&#39;-1&#39;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="n">pyrewall</span><span class="o">.</span><span class="n">InvalidPort</span><span class="p">):</span>
+            <span class="n">pyrewall</span><span class="o">.</span><span class="n">valid_port</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="TestPyreParser"><a class="viewcode-back" href="../code/tests.html#tests.TestPyreParser">[docs]</a><span class="k">class</span> <span class="nc">TestPyreParser</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Unit testing which tests the output from parsing entire .pyre files by comparing the returned rules to expected</span>
+<span class="sd">    result .v4 and .v6 files.</span>
+
+<span class="sd">    Pyre testing configurations can be found in ``testdata/configs`` - Pyre configs generally end with ``.pyre``, while</span>
+<span class="sd">    the rendered outputs end in ``.v4`` and ``.v6`` respectively (unless they&#39;re designed for testing an ``@import``)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">pyre_files</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">test1</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+            <span class="n">path</span><span class="o">=</span><span class="n">_find_file</span><span class="p">(</span><span class="s1">&#39;test1.pyre&#39;</span><span class="p">),</span>
+            <span class="n">v4</span><span class="o">=</span><span class="n">_find_file</span><span class="p">(</span><span class="s1">&#39;test1_out.v4&#39;</span><span class="p">),</span>
+            <span class="n">v6</span><span class="o">=</span><span class="n">_find_file</span><span class="p">(</span><span class="s1">&#39;test1_out.v6&#39;</span><span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">render_cache</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="nf">_parse_help</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">testname</span><span class="p">,</span> <span class="n">cached</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Helper method - parses ``path`` under the matching test name in :py:attr:`.pyre_files` using</span>
+<span class="sd">        :class:`.PyreParser` and outputs a dict containing ``v4`` and ``v6``</span>
+
+<span class="sd">        e.g.</span>
+
+<span class="sd">            dict(</span>
+<span class="sd">                v4=[ [&#39;*filter&#39;, ...], [&#39;*filter&#39;, ...], ],</span>
+<span class="sd">                v6=[ [&#39;*filter&#39;, ...], [&#39;*filter&#39;, ...], ],</span>
+<span class="sd">            )</span>
+
+
+<span class="sd">        **Note:** To improve testing speed, rendered results are cached in :py:attr:`.render_cache`. If a test</span>
+<span class="sd">        changes something about the way the file would be rendered, make sure to pass ``cached=False`` to bypass</span>
+<span class="sd">        the render cache.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">cached</span> <span class="ow">and</span> <span class="n">testname</span> <span class="ow">in</span> <span class="n">TestPyreParser</span><span class="o">.</span><span class="n">render_cache</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">TestPyreParser</span><span class="o">.</span><span class="n">render_cache</span><span class="p">[</span><span class="n">testname</span><span class="p">]</span>
+
+        <span class="n">p</span> <span class="o">=</span> <span class="n">pyrewall</span><span class="o">.</span><span class="n">PyreParser</span><span class="p">()</span>
+        <span class="n">fp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pyre_files</span><span class="p">[</span><span class="n">testname</span><span class="p">]</span>
+        <span class="n">v4r</span><span class="p">,</span> <span class="n">v6r</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">parse_file</span><span class="p">(</span><span class="n">fp</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">])</span>
+
+        <span class="n">res</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">v4</span><span class="o">=</span><span class="p">[</span><span class="n">v4r</span><span class="p">],</span> <span class="n">v6</span><span class="o">=</span><span class="p">[</span><span class="n">v6r</span><span class="p">])</span>
+        <span class="k">if</span> <span class="s1">&#39;v4&#39;</span> <span class="ow">in</span> <span class="n">fp</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fp</span><span class="p">[</span><span class="s1">&#39;v4&#39;</span><span class="p">])</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+                <span class="n">res</span><span class="p">[</span><span class="s1">&#39;v4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">fh</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span> <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="s1">&#39;v6&#39;</span> <span class="ow">in</span> <span class="n">fp</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fp</span><span class="p">[</span><span class="s1">&#39;v6&#39;</span><span class="p">])</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+                <span class="n">res</span><span class="p">[</span><span class="s1">&#39;v6&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">fh</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span> <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">])</span>
+
+        <span class="n">TestPyreParser</span><span class="o">.</span><span class="n">render_cache</span><span class="p">[</span><span class="n">testname</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span>
+
+        <span class="k">return</span> <span class="n">res</span>
+
+    <span class="k">def</span> <span class="nf">test_basic_parsing_test1_v4</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">parsed</span><span class="p">,</span> <span class="n">pre</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_help</span><span class="p">(</span><span class="s1">&#39;test1&#39;</span><span class="p">)[</span><span class="s1">&#39;v4&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">parsed</span><span class="p">,</span> <span class="n">pre</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Test parsed test1.pyre matches pre-rendered v4 rules file&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_basic_parsing_test1_v6</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">parsed</span><span class="p">,</span> <span class="n">pre</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_help</span><span class="p">(</span><span class="s1">&#39;test1&#39;</span><span class="p">)[</span><span class="s1">&#39;v6&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">parsed</span><span class="p">,</span> <span class="n">pre</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Test parsed test1.pyre matches pre-rendered v6 rules file&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TestFindFile"><a class="viewcode-back" href="../code/tests.html#tests.TestFindFile">[docs]</a><span class="k">class</span> <span class="nc">TestFindFile</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test cases to thoroughly test absolute, relative, and flat filenames with PyreWall function</span>
+<span class="sd">    :py:func:`privex.pyrewall.core.find_file`</span>
+
+<span class="sd">    Tests both the &quot;search paths&quot; functionality, along with the automatic extension guessing.</span>
+
+<span class="sd">    Dependant on the folder ``testdata`` which contains various empty files in a hierarchical structure designed</span>
+<span class="sd">    for testing the search path functionality.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TestFindFile.test_filename"><a class="viewcode-back" href="../code/tests.html#tests.TestFindFile.test_filename">[docs]</a>    <span class="k">def</span> <span class="nf">test_filename</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test search path with extensionless example1 in search paths (testdata/findfile)&quot;&quot;&quot;</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">_find_file</span><span class="p">(</span><span class="s1">&#39;example1&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">join</span><span class="p">(</span><span class="n">DIR_FF1</span><span class="p">,</span> <span class="s1">&#39;example1&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="TestFindFile.test_filename_relative"><a class="viewcode-back" href="../code/tests.html#tests.TestFindFile.test_filename_relative">[docs]</a>    <span class="k">def</span> <span class="nf">test_filename_relative</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test search path with ``subdirtest/example8.txt`` in search paths (testdata/findfile)&quot;&quot;&quot;</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">_find_file</span><span class="p">(</span><span class="s1">&#39;subdirtest/example8.txt&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">join</span><span class="p">(</span><span class="n">DIR_FF1</span><span class="p">,</span> <span class="s1">&#39;subdirtest/example8.txt&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="TestFindFile.test_ff2_filename"><a class="viewcode-back" href="../code/tests.html#tests.TestFindFile.test_ff2_filename">[docs]</a>    <span class="k">def</span> <span class="nf">test_ff2_filename</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test search path with extensionless example4 in search paths (testdata/findfile2)&quot;&quot;&quot;</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">_find_file</span><span class="p">(</span><span class="s1">&#39;example4&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">join</span><span class="p">(</span><span class="n">DIR_FF2</span><span class="p">,</span> <span class="s1">&#39;example4&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="TestFindFile.test_filename_ext_log"><a class="viewcode-back" href="../code/tests.html#tests.TestFindFile.test_filename_ext_log">[docs]</a>    <span class="k">def</span> <span class="nf">test_filename_ext_log</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test search path with specified extension finding example3.log in search paths (testdata/findfile)&quot;&quot;&quot;</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">_find_file</span><span class="p">(</span><span class="s1">&#39;example3.log&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">join</span><span class="p">(</span><span class="n">DIR_FF1</span><span class="p">,</span> <span class="s1">&#39;example3.log&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="TestFindFile.test_filename_ext_txt_relative"><a class="viewcode-back" href="../code/tests.html#tests.TestFindFile.test_filename_ext_txt_relative">[docs]</a>    <span class="k">def</span> <span class="nf">test_filename_ext_txt_relative</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test search path / extensions by finding relative ``subdirtest/example8.txt`` in search paths&quot;&quot;&quot;</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">_find_file</span><span class="p">(</span><span class="s1">&#39;subdirtest/example8&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">join</span><span class="p">(</span><span class="n">DIR_FF1</span><span class="p">,</span> <span class="s1">&#39;subdirtest/example8.txt&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="TestFindFile.test_filename_find_ext_txt"><a class="viewcode-back" href="../code/tests.html#tests.TestFindFile.test_filename_find_ext_txt">[docs]</a>    <span class="k">def</span> <span class="nf">test_filename_find_ext_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test search path / extensions with finding example2 in search paths (testdata/findfile)&quot;&quot;&quot;</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">_find_file</span><span class="p">(</span><span class="s1">&#39;example2&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">join</span><span class="p">(</span><span class="n">DIR_FF1</span><span class="p">,</span> <span class="s1">&#39;example2.txt&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="TestFindFile.test_ff2_filename_find_ext_txt"><a class="viewcode-back" href="../code/tests.html#tests.TestFindFile.test_ff2_filename_find_ext_txt">[docs]</a>    <span class="k">def</span> <span class="nf">test_ff2_filename_find_ext_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test search path / extensions with finding example5 in search paths (testdata/findfile2)&quot;&quot;&quot;</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">_find_file</span><span class="p">(</span><span class="s1">&#39;example5&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">join</span><span class="p">(</span><span class="n">DIR_FF2</span><span class="p">,</span> <span class="s1">&#39;example5.txt&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="TestFindFile.test_ff2_filename_find_ext_log"><a class="viewcode-back" href="../code/tests.html#tests.TestFindFile.test_ff2_filename_find_ext_log">[docs]</a>    <span class="k">def</span> <span class="nf">test_ff2_filename_find_ext_log</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test search path / extensions with finding example6 in search paths (testdata/findfile2)&quot;&quot;&quot;</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">_find_file</span><span class="p">(</span><span class="s1">&#39;example6&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">join</span><span class="p">(</span><span class="n">DIR_FF2</span><span class="p">,</span> <span class="s1">&#39;example6.log&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="TestFindFile.test_filename_absolute"><a class="viewcode-back" href="../code/tests.html#tests.TestFindFile.test_filename_absolute">[docs]</a>    <span class="k">def</span> <span class="nf">test_filename_absolute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test finding absolute paths returns the correct path&quot;&quot;&quot;</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">&#39;testdata&#39;</span><span class="p">,</span> <span class="s1">&#39;example7.txt&#39;</span><span class="p">)</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">_find_file</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestFindFile.test_filename_noexist"><a class="viewcode-back" href="../code/tests.html#tests.TestFindFile.test_filename_noexist">[docs]</a>    <span class="k">def</span> <span class="nf">test_filename_noexist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test non-existent search filename causes FileNotFoundError exception&quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">FileNotFoundError</span><span class="p">):</span>
+            <span class="n">_find_file</span><span class="p">(</span><span class="s1">&#39;TOTALLY_NON_EXISTENT_FILE.PYRE&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestFindFile.test_filename_noexist_absolute"><a class="viewcode-back" href="../code/tests.html#tests.TestFindFile.test_filename_noexist_absolute">[docs]</a>    <span class="k">def</span> <span class="nf">test_filename_noexist_absolute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test non-existent absolute path causes FileNotFoundError exception&quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">FileNotFoundError</span><span class="p">):</span>
+            <span class="n">_find_file</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">&#39;testdata&#39;</span><span class="p">,</span> <span class="s1">&#39;TOTALLY_NON_EXISTENT_FILE.PYRE&#39;</span><span class="p">))</span></div></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Privex Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

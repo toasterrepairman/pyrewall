@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>privex.pyrewall.PyreLexer &mdash; Privex Pyrewall  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #473E53" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Privex Pyrewall
+          
+
+          
+            
+            <img src="../../../_static/brand_text_nofont.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Main:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Privex Privex documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#from-python">From Python</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Code Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../code/index.html">Code Docs for each helper module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../code/index.html#modules">Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../code/privex.pyrewall.PyreLexer.html">PyreLexer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../code/privex.pyrewall.PyreParser.html">PyreParser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../code/privex.pyrewall.RuleBuilder.html">RuleBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../code/privex.pyrewall.PyreParser.html">PyreParser</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../code/index.html#privex-pyrewall">privex.pyrewall</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../code/types.html">types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../code/index.html#testdata">testdata</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Privex Pyrewall</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>privex.pyrewall.PyreLexer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for privex.pyrewall.PyreLexer</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pygments.lexers.python</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pygments</span> <span class="k">import</span> <span class="n">unistring</span> <span class="k">as</span> <span class="n">uni</span>
+<span class="kn">from</span> <span class="nn">pygments.util</span> <span class="k">import</span> <span class="n">shebang_matches</span>
+<span class="kn">from</span> <span class="nn">privex.pyrewall.PyreParser</span> <span class="k">import</span> <span class="n">PyreParser</span>
+<span class="kn">from</span> <span class="nn">privex.pyrewall.RuleParser</span> <span class="k">import</span> <span class="n">RuleParser</span>
+
+
+<div class="viewcode-block" id="PyreLexer"><a class="viewcode-back" href="../../../code/privex.pyrewall.PyreLexer.html#privex.pyrewall.PyreLexer.PyreLexer">[docs]</a><span class="k">class</span> <span class="nc">PyreLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Lexer for syntax highlighting PyreWall files</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;PyreWall&#39;</span>
+    <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pyrewall&#39;</span><span class="p">,</span> <span class="s1">&#39;pyre&#39;</span><span class="p">]</span>
+    <span class="n">filenames</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Nothing until Python 3 gets widespread</span>
+    <span class="n">mimetypes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;text/x-pyrewall&#39;</span><span class="p">,</span> <span class="s1">&#39;application/x-pyrewall&#39;</span><span class="p">]</span>
+
+    <span class="n">ipv6_address</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;(?:(?:[0-9A-Fa-f]{1,4}:)</span><span class="si">{6}</span><span class="s1">(?:[0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|(?:(?:[0-9]|[1-9][0-9]|1[0-9]{&#39;</span> \
+                   <span class="sa">r</span><span class="s1">&#39;2}|2[0-4][0-9]|25[0-5])</span><span class="se">\\</span><span class="s1">.)</span><span class="si">{3}</span><span class="s1">(?:[0-9]|[1-9][0-9]|1[0-9]</span><span class="si">{2}</span><span class="s1">|2[0-4][0-9]|25[0-5]))|::(?:[&#39;</span> \
+                   <span class="sa">r</span><span class="s1">&#39;0-9A-Fa-f]{1,4}:)</span><span class="si">{5}</span><span class="s1">(?:[0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|(?:(?:[0-9]|[1-9][0-9]|1[0-9]</span><span class="si">{2}</span><span class="s1">|2[&#39;</span> \
+                   <span class="sa">r</span><span class="s1">&#39;0-4][0-9]|25[0-5])</span><span class="se">\\</span><span class="s1">.)</span><span class="si">{3}</span><span class="s1">(?:[0-9]|[1-9][0-9]|1[0-9]</span><span class="si">{2}</span><span class="s1">|2[0-4][0-9]|25[0-5]))|(?:[0-9A-Fa-f]{1,&#39;</span> \
+                   <span class="sa">r</span><span class="s1">&#39;4})?::(?:[0-9A-Fa-f]{1,4}:)</span><span class="si">{4}</span><span class="s1">(?:[0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|(?:(?:[0-9]|[1-9][0-9]|1[&#39;</span> \
+                   <span class="sa">r</span><span class="s1">&#39;0-9]</span><span class="si">{2}</span><span class="s1">|2[0-4][0-9]|25[0-5])</span><span class="se">\\</span><span class="s1">.)</span><span class="si">{3}</span><span class="s1">(?:[0-9]|[1-9][0-9]|1[0-9]</span><span class="si">{2}</span><span class="s1">|2[0-4][0-9]|25[0-5]))|(?:[&#39;</span> \
+                   <span class="sa">r</span><span class="s1">&#39;0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4})?::(?:[0-9A-Fa-f]{1,4}:)</span><span class="si">{3}</span><span class="s1">(?:[0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,&#39;</span> \
+                   <span class="sa">r</span><span class="s1">&#39;4}|(?:(?:[0-9]|[1-9][0-9]|1[0-9]</span><span class="si">{2}</span><span class="s1">|2[0-4][0-9]|25[0-5])</span><span class="se">\\</span><span class="s1">.)</span><span class="si">{3}</span><span class="s1">(?:[0-9]|[1-9][0-9]|1[0-9]</span><span class="si">{2}</span><span class="s1">|2[&#39;</span> \
+                   <span class="sa">r</span><span class="s1">&#39;0-4][0-9]|25[0-5]))|(?:(?:[0-9A-Fa-f]{1,4}:){,2}[0-9A-Fa-f]{1,4})?::(?:[0-9A-Fa-f]{1,4}:)</span><span class="si">{2}</span><span class="s1">(?:[&#39;</span> \
+                   <span class="sa">r</span><span class="s1">&#39;0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|(?:(?:[0-9]|[1-9][0-9]|1[0-9]</span><span class="si">{2}</span><span class="s1">|2[0-4][0-9]|25[0-5])</span><span class="se">\\</span><span class="s1">.)</span><span class="si">{3}</span><span class="s1">(&#39;</span> \
+                   <span class="sa">r</span><span class="s1">&#39;?:[0-9]|[1-9][0-9]|1[0-9]</span><span class="si">{2}</span><span class="s1">|2[0-4][0-9]|25[0-5]))|(?:(?:[0-9A-Fa-f]{1,4}:){,3}[0-9A-Fa-f]{1,&#39;</span> \
+                   <span class="sa">r</span><span class="s1">&#39;4})?::[0-9A-Fa-f]{1,4}:(?:[0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|(?:(?:[0-9]|[1-9][0-9]|1[0-9]</span><span class="si">{2}</span><span class="s1">|2[&#39;</span> \
+                   <span class="sa">r</span><span class="s1">&#39;0-4][0-9]|25[0-5])</span><span class="se">\\</span><span class="s1">.)</span><span class="si">{3}</span><span class="s1">(?:[0-9]|[1-9][0-9]|1[0-9]</span><span class="si">{2}</span><span class="s1">|2[0-4][0-9]|25[0-5]))|(?:(?:[0-9A-Fa-f]{&#39;</span> \
+                   <span class="sa">r</span><span class="s1">&#39;1,4}:){,4}[0-9A-Fa-f]{1,4})?::(?:[0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|(?:(?:[0-9]|[1-9][0-9]|1[&#39;</span> \
+                   <span class="sa">r</span><span class="s1">&#39;0-9]</span><span class="si">{2}</span><span class="s1">|2[0-4][0-9]|25[0-5])</span><span class="se">\\</span><span class="s1">.)</span><span class="si">{3}</span><span class="s1">(?:[0-9]|[1-9][0-9]|1[0-9]</span><span class="si">{2}</span><span class="s1">|2[0-4][0-9]|25[0-5]))|(?:(?:[&#39;</span> \
+                   <span class="sa">r</span><span class="s1">&#39;0-9A-Fa-f]{1,4}:){,5}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}|(?:(?:[0-9A-Fa-f]{1,4}:){,&#39;</span> \
+                   <span class="sa">r</span><span class="s1">&#39;6}[0-9A-Fa-f]{1,4})?::)(/?([0-9]+)?)?&#39;</span>
+
+    <span class="n">ipv4_address</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})&quot;</span>
+
+    <span class="n">flags</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span> <span class="o">|</span> <span class="n">re</span><span class="o">.</span><span class="n">UNICODE</span>
+
+    <span class="n">uni_name</span> <span class="o">=</span> <span class="s2">&quot;[</span><span class="si">%s</span><span class="s2">][</span><span class="si">%s</span><span class="s2">]*&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">uni</span><span class="o">.</span><span class="n">xid_start</span><span class="p">,</span> <span class="n">uni</span><span class="o">.</span><span class="n">xid_continue</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">innerstring_rules</span><span class="p">(</span><span class="n">ttype</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="c1"># the old style &#39;%s&#39; % (...) string formatting (still valid in Py3)</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;%(\(\w+\))?[-#0 +]*([0-9]+|[*])?(\.([0-9]+|[*]))?&#39;</span>
+             <span class="s1">&#39;[hlL]?[E-GXc-giorsaux%]&#39;</span><span class="p">,</span> <span class="n">String</span><span class="o">.</span><span class="n">Interpol</span><span class="p">),</span>
+            <span class="c1"># the new style &#39;{}&#39;.format(...) string formatting</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\{&#39;</span>
+             <span class="sa">r</span><span class="s1">&#39;((\w+)((\.\w+)|(\[[^\]]+\]))*)?&#39;</span>  <span class="c1"># field name</span>
+             <span class="sa">r</span><span class="s1">&#39;(\![sra])?&#39;</span>                       <span class="c1"># conversion</span>
+             <span class="sa">r</span><span class="s1">&#39;(\:(.?[&lt;&gt;=\^])?[-+ ]?#?0?(\d+)?,?(\.\d+)?[E-GXb-gnosx%]?)?&#39;</span>
+             <span class="sa">r</span><span class="s1">&#39;\}&#39;</span><span class="p">,</span> <span class="n">String</span><span class="o">.</span><span class="n">Interpol</span><span class="p">),</span>
+
+            <span class="c1"># backslashes, quotes and formatting signs must be parsed one at a time</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^</span><span class="se">\\\&#39;</span><span class="s1">&quot;%{\n]+&#39;</span><span class="p">,</span> <span class="n">ttype</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[</span><span class="se">\&#39;</span><span class="s1">&quot;</span><span class="se">\\</span><span class="s1">]&#39;</span><span class="p">,</span> <span class="n">ttype</span><span class="p">),</span>
+            <span class="c1"># unhandled string formatting sign</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;%|(\{{1,2})&#39;</span><span class="p">,</span> <span class="n">ttype</span><span class="p">)</span>
+            <span class="c1"># newlines are an error (use &quot;nl&quot; state)</span>
+        <span class="p">]</span>
+
+    <span class="n">tokens</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">root</span><span class="o">=</span><span class="p">[</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^(@import)(.*)$&#39;</span><span class="p">,</span> <span class="n">bygroups</span><span class="p">(</span><span class="n">Name</span><span class="o">.</span><span class="n">Decorator</span><span class="p">,</span> <span class="n">Name</span><span class="o">.</span><span class="n">Namespace</span><span class="p">)),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;#.*$&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">),</span>
+            <span class="p">(</span><span class="n">ipv4_address</span><span class="p">,</span> <span class="n">Number</span><span class="o">.</span><span class="n">Integer</span><span class="p">),</span>
+            <span class="p">(</span><span class="n">ipv6_address</span><span class="p">,</span> <span class="n">Number</span><span class="o">.</span><span class="n">Integer</span><span class="p">),</span>
+            <span class="n">include</span><span class="p">(</span><span class="s1">&#39;builtins&#39;</span><span class="p">),</span>
+            <span class="n">include</span><span class="p">(</span><span class="s1">&#39;keywords&#39;</span><span class="p">),</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+    <span class="n">tokens</span><span class="p">[</span><span class="s1">&#39;keywords&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="n">words</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">PyreParser</span><span class="o">.</span><span class="n">control_handlers</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">suffix</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;\b&#39;</span><span class="p">),</span> <span class="n">Name</span><span class="o">.</span><span class="n">Decorator</span><span class="p">),</span>
+    <span class="p">]</span>
+    <span class="n">tokens</span><span class="p">[</span><span class="s1">&#39;builtins&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="n">words</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">RuleParser</span><span class="o">.</span><span class="n">rule_handlers</span><span class="p">),</span> <span class="n">prefix</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;(?&lt;!\.)&#39;</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;\b&#39;</span><span class="p">),</span> <span class="n">Name</span><span class="o">.</span><span class="n">Builtin</span><span class="p">),</span>
+    <span class="p">]</span>
+
+    <span class="n">tokens</span><span class="p">[</span><span class="s1">&#39;numbers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\d(?:_?\d)*\.(?:\d(?:_?\d)*)?|(?:\d(?:_?\d)*)?\.\d(?:_?\d)*)&#39;</span>
+         <span class="sa">r</span><span class="s1">&#39;([eE][+-]?\d(?:_?\d)*)?&#39;</span><span class="p">,</span> <span class="n">Number</span><span class="o">.</span><span class="n">Float</span><span class="p">),</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d(?:_?\d)*[eE][+-]?\d(?:_?\d)*j?&#39;</span><span class="p">,</span> <span class="n">Number</span><span class="o">.</span><span class="n">Float</span><span class="p">),</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;0[oO](?:_?[0-7])+&#39;</span><span class="p">,</span> <span class="n">Number</span><span class="o">.</span><span class="n">Oct</span><span class="p">),</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;0[bB](?:_?[01])+&#39;</span><span class="p">,</span> <span class="n">Number</span><span class="o">.</span><span class="n">Bin</span><span class="p">),</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;0[xX](?:_?[a-fA-F0-9])+&#39;</span><span class="p">,</span> <span class="n">Number</span><span class="o">.</span><span class="n">Hex</span><span class="p">),</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d(?:_?\d)*&#39;</span><span class="p">,</span> <span class="n">Number</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">tokens</span><span class="p">[</span><span class="s1">&#39;backtick&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">tokens</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;@\w+&#39;</span><span class="p">,</span> <span class="n">Name</span><span class="o">.</span><span class="n">Decorator</span><span class="p">),</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;@&#39;</span><span class="p">,</span> <span class="n">Operator</span><span class="p">),</span>  <span class="c1"># new matrix multiplication operator</span>
+        <span class="p">(</span><span class="n">uni_name</span><span class="p">,</span> <span class="n">Name</span><span class="p">),</span>
+    <span class="p">]</span></div>
+
+
+
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Privex Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

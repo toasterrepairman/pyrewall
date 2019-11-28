@@ -1,0 +1,394 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>types &mdash; Privex Pyrewall  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="RuleBuilder" href="privex.pyrewall.RuleBuilder.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #473E53" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Privex Pyrewall
+          
+
+          
+            
+            <img src="../_static/brand_text_nofont.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Main:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Privex Privex documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#from-python">From Python</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Code Documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Code Docs for each helper module</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#modules">Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="privex.pyrewall.PyreLexer.html">PyreLexer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="privex.pyrewall.PyreParser.html">PyreParser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="privex.pyrewall.RuleBuilder.html">RuleBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="privex.pyrewall.PyreParser.html">PyreParser</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#privex-pyrewall">privex.pyrewall</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#testdata">testdata</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Privex Pyrewall</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Code Docs for each helper module</a> &raquo;</li>
+        
+      <li>types</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/code/types.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-types">
+<span id="types"></span><h1>types<a class="headerlink" href="#module-types" title="Permalink to this headline">¶</a></h1>
+<p>Define names for built-in types that aren’t directly accessible as a builtin.</p>
+<p class="rubric">Functions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#types.coroutine" title="types.coroutine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">coroutine</span></code></a>(func)</p></td>
+<td><p>Convert regular generator function to a coroutine.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#types.new_class" title="types.new_class"><code class="xref py py-obj docutils literal notranslate"><span class="pre">new_class</span></code></a>(name[, bases, kwds, exec_body])</p></td>
+<td><p>Create a class object dynamically using the appropriate metaclass.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#types.prepare_class" title="types.prepare_class"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prepare_class</span></code></a>(name[, bases, kwds])</p></td>
+<td><p>Call the __prepare__ method of the appropriate metaclass.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#types.DynamicClassAttribute" title="types.DynamicClassAttribute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DynamicClassAttribute</span></code></a>([fget, fset, fdel, doc])</p></td>
+<td><p>Route attribute access on a class to __getattr__.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#types.SimpleNamespace" title="types.SimpleNamespace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SimpleNamespace</span></code></a></p></td>
+<td><p>A simple attribute-based namespace.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="types.FunctionType">
+<code class="sig-prename descclassname">types.</code><code class="sig-name descname">FunctionType</code><a class="headerlink" href="#types.FunctionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.function</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="types.LambdaType">
+<code class="sig-prename descclassname">types.</code><code class="sig-name descname">LambdaType</code><a class="headerlink" href="#types.LambdaType" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.function</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="types.CodeType">
+<code class="sig-prename descclassname">types.</code><code class="sig-name descname">CodeType</code><a class="headerlink" href="#types.CodeType" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.code</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="types.SimpleNamespace">
+<em class="property">class </em><code class="sig-prename descclassname">types.</code><code class="sig-name descname">SimpleNamespace</code><a class="headerlink" href="#types.SimpleNamespace" title="Permalink to this definition">¶</a></dt>
+<dd><p>A simple attribute-based namespace.</p>
+<p>SimpleNamespace(<a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="types.MethodType">
+<code class="sig-prename descclassname">types.</code><code class="sig-name descname">MethodType</code><a class="headerlink" href="#types.MethodType" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.method</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="types.BuiltinFunctionType">
+<code class="sig-prename descclassname">types.</code><code class="sig-name descname">BuiltinFunctionType</code><a class="headerlink" href="#types.BuiltinFunctionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.builtin_function_or_method</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="types.BuiltinMethodType">
+<code class="sig-prename descclassname">types.</code><code class="sig-name descname">BuiltinMethodType</code><a class="headerlink" href="#types.BuiltinMethodType" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.builtin_function_or_method</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="types.WrapperDescriptorType">
+<code class="sig-prename descclassname">types.</code><code class="sig-name descname">WrapperDescriptorType</code><a class="headerlink" href="#types.WrapperDescriptorType" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.wrapper_descriptor</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="types.MethodWrapperType">
+<code class="sig-prename descclassname">types.</code><code class="sig-name descname">MethodWrapperType</code><a class="headerlink" href="#types.MethodWrapperType" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.method-wrapper</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="types.MethodDescriptorType">
+<code class="sig-prename descclassname">types.</code><code class="sig-name descname">MethodDescriptorType</code><a class="headerlink" href="#types.MethodDescriptorType" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.method_descriptor</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="types.ClassMethodDescriptorType">
+<code class="sig-prename descclassname">types.</code><code class="sig-name descname">ClassMethodDescriptorType</code><a class="headerlink" href="#types.ClassMethodDescriptorType" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.classmethod_descriptor</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="types.ModuleType">
+<code class="sig-prename descclassname">types.</code><code class="sig-name descname">ModuleType</code><a class="headerlink" href="#types.ModuleType" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.module</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="types.TracebackType">
+<code class="sig-prename descclassname">types.</code><code class="sig-name descname">TracebackType</code><a class="headerlink" href="#types.TracebackType" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.traceback</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="types.GetSetDescriptorType">
+<code class="sig-prename descclassname">types.</code><code class="sig-name descname">GetSetDescriptorType</code><a class="headerlink" href="#types.GetSetDescriptorType" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.getset_descriptor</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="types.MemberDescriptorType">
+<code class="sig-prename descclassname">types.</code><code class="sig-name descname">MemberDescriptorType</code><a class="headerlink" href="#types.MemberDescriptorType" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.member_descriptor</span></code></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="types.new_class">
+<code class="sig-prename descclassname">types.</code><code class="sig-name descname">new_class</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">bases=()</em>, <em class="sig-param">kwds=None</em>, <em class="sig-param">exec_body=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/types.html#new_class"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#types.new_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a class object dynamically using the appropriate metaclass.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="types.resolve_bases">
+<code class="sig-prename descclassname">types.</code><code class="sig-name descname">resolve_bases</code><span class="sig-paren">(</span><em class="sig-param">bases</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/types.html#resolve_bases"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#types.resolve_bases" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resolve MRO entries dynamically as specified by PEP 560.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="types.prepare_class">
+<code class="sig-prename descclassname">types.</code><code class="sig-name descname">prepare_class</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">bases=()</em>, <em class="sig-param">kwds=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/types.html#prepare_class"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#types.prepare_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call the __prepare__ method of the appropriate metaclass.</p>
+<p>Returns (metaclass, namespace, kwds) as a 3-tuple</p>
+<p><em>metaclass</em> is the appropriate metaclass
+<em>namespace</em> is the prepared class namespace
+<em>kwds</em> is an updated copy of the passed in kwds argument with any
+‘metaclass’ entry removed. If no kwds argument is passed in, this will
+be an empty dict.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="types.DynamicClassAttribute">
+<em class="property">class </em><code class="sig-prename descclassname">types.</code><code class="sig-name descname">DynamicClassAttribute</code><span class="sig-paren">(</span><em class="sig-param">fget=None</em>, <em class="sig-param">fset=None</em>, <em class="sig-param">fdel=None</em>, <em class="sig-param">doc=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/types.html#DynamicClassAttribute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#types.DynamicClassAttribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route attribute access on a class to __getattr__.</p>
+<p>This is a descriptor, used to define attributes that act differently when
+accessed through an instance and through a class.  Instance access remains
+normal, but access to an attribute through a class will be routed to the
+class’s __getattr__ method; this is done by raising AttributeError.</p>
+<p>This allows one to have properties active on an instance, and have virtual
+attributes on the class with the same name (see Enum for an example).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="types.coroutine">
+<code class="sig-prename descclassname">types.</code><code class="sig-name descname">coroutine</code><span class="sig-paren">(</span><em class="sig-param">func</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/types.html#coroutine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#types.coroutine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert regular generator function to a coroutine.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="privex.pyrewall.RuleBuilder.html" class="btn btn-neutral float-left" title="RuleBuilder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Privex Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

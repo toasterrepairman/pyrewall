@@ -1,0 +1,456 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>privex.pyrewall.PyreParser &mdash; Privex Pyrewall  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #473E53" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Privex Pyrewall
+          
+
+          
+            
+            <img src="../../../_static/brand_text_nofont.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Main:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Privex Privex documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#from-python">From Python</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Code Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../code/index.html">Code Docs for each helper module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../code/index.html#modules">Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../code/privex.pyrewall.PyreLexer.html">PyreLexer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../code/privex.pyrewall.PyreParser.html">PyreParser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../code/privex.pyrewall.RuleBuilder.html">RuleBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../code/privex.pyrewall.PyreParser.html">PyreParser</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../code/index.html#privex-pyrewall">privex.pyrewall</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../code/types.html">types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../code/index.html#testdata">testdata</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Privex Pyrewall</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>privex.pyrewall.PyreParser</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for privex.pyrewall.PyreParser</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">privex.pyrewall.RuleParser</span> <span class="k">import</span> <span class="n">RuleParser</span>
+<span class="kn">from</span> <span class="nn">privex.pyrewall.core</span> <span class="k">import</span> <span class="n">find_file</span>
+<span class="kn">from</span> <span class="nn">privex.pyrewall</span> <span class="k">import</span> <span class="n">conf</span>
+<span class="kn">from</span> <span class="nn">privex.pyrewall.exceptions</span> <span class="k">import</span> <span class="n">UnknownKeyword</span>
+<span class="kn">from</span> <span class="nn">privex.pyrewall.types</span> <span class="k">import</span> <span class="n">IPVersionList</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="n">EXTENSION_TYPES</span> <span class="o">=</span> <span class="n">conf</span><span class="o">.</span><span class="n">EXTENSION_TYPES</span>
+
+
+<div class="viewcode-block" id="PyreParser"><a class="viewcode-back" href="../../../code/privex.pyrewall.PyreParser.html#privex.pyrewall.PyreParser">[docs]</a><span class="k">class</span> <span class="nc">PyreParser</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    PyreParser - The highest level parser class - directly parses ``.pyre`` files and generates iptables compatible</span>
+<span class="sd">    configuration lines.</span>
+
+<span class="sd">    The class is a layer above :class:`.RuleParser`, PyreParser handles special &quot;control&quot; directives such as</span>
+<span class="sd">    ``@import``, ``@chain`` and ``@table`` and generates entire iptables configurations, not just single lines.</span>
+
+<span class="sd">    **Basic usage**</span>
+
+<span class="sd">    Import required classes/functions</span>
+
+<span class="sd">    &gt;&gt;&gt; from privex.pyrewall import PyreParser, find_file, conf</span>
+
+<span class="sd">    Get the absolute path for your Pyre rules file, initialise PyreParser, and use :py:meth:`.parse_file` to</span>
+<span class="sd">    load the file and parse the Pyre rules.</span>
+
+<span class="sd">    &gt;&gt;&gt; my_config = find_file(&#39;test.pyre&#39;)   # Get abs path for the ``.pyre`` file in search dirs using find_file</span>
+<span class="sd">    &gt;&gt;&gt; r = PyreParser()</span>
+<span class="sd">    &gt;&gt;&gt; v4_rules, v6_rules = r.parse_file(path=my_config)</span>
+
+<span class="sd">    Loop over the IPv4 and IPv6 rules and output them in your preferred format.</span>
+
+<span class="sd">    &gt;&gt;&gt; for r in v4_rules:</span>
+<span class="sd">    ...     print(r)</span>
+<span class="sd">    &gt;&gt;&gt; for r in v6_rules:</span>
+<span class="sd">    ...     print(r)</span>
+
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">table</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="sd">&quot;&quot;&quot;The current IPTables table being used. Default: ``filter``&quot;&quot;&quot;</span>
+    <span class="n">chains</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span>
+    <span class="sd">&quot;&quot;&quot;A dictionary mapping chain names such as ``INPUT`` to a list of arguments, e.g. ``[&#39;ACCEPT&#39;, &#39;[0:0]&#39;]`` &quot;&quot;&quot;</span>
+    <span class="n">cache</span><span class="p">:</span> <span class="n">IPVersionList</span>
+    <span class="sd">&quot;&quot;&quot;Contains ``List[str]``&#39;s of the currently generated iptables rules per IP version e.g. ``self.cache.v4`` &quot;&quot;&quot;</span>
+    <span class="n">output</span><span class="p">:</span> <span class="n">IPVersionList</span>
+    <span class="sd">&quot;&quot;&quot;Contains ``List[str]``&#39;s of the final generated iptables rules per IP version e.g. ``self.output.v4`` &quot;&quot;&quot;</span>
+    <span class="n">committed</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">rp</span><span class="p">:</span> <span class="n">RuleParser</span>
+    <span class="n">strict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">DEFAULT_CHAINS</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="n">conf</span><span class="o">.</span><span class="n">DEFAULT_CHAINS</span>
+    <span class="sd">&quot;&quot;&quot;Alias for :py:attr:`privex.pyrewall.conf.DEFAULT_CHAINS` &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="PyreParser.__init__"><a class="viewcode-back" href="../../../code/privex.pyrewall.PyreParser.html#privex.pyrewall.PyreParser.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="o">=</span><span class="s1">&#39;filter&#39;</span><span class="p">,</span> <span class="n">chains</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">rp_args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        PyreParser - The highest level parser class - directly parses ``.pyre`` files and generates iptables compatible</span>
+<span class="sd">        configuration lines.</span>
+
+<span class="sd">        :param str   table: The default table to use if not specified in the rules file, e.g. ``filter`` or ``nat``</span>
+<span class="sd">        :param dict chains: Optionally override the default chains used. Defaults to :py:attr:`.DEFAULT_CHAINS`</span>
+<span class="sd">        :param     rp_args:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="o">=</span> <span class="n">table</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chains</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">DEFAULT_CHAINS</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="p">])</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">chains</span> <span class="k">else</span> <span class="n">chains</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cache</span> <span class="o">=</span> <span class="n">IPVersionList</span><span class="p">(</span><span class="n">v4</span><span class="o">=</span><span class="p">[],</span> <span class="n">v6</span><span class="o">=</span><span class="p">[])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">IPVersionList</span><span class="p">(</span><span class="n">v4</span><span class="o">=</span><span class="p">[],</span> <span class="n">v6</span><span class="o">=</span><span class="p">[])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">committed</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="s1">&#39;strict&#39;</span> <span class="ow">in</span> <span class="n">rp_args</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">strict</span> <span class="o">=</span> <span class="n">rp_args</span><span class="p">[</span><span class="s1">&#39;strict&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rp</span> <span class="o">=</span> <span class="n">RuleParser</span><span class="p">(</span><span class="o">**</span><span class="n">rp_args</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="PyreParser.parse_lines"><a class="viewcode-back" href="../../../code/privex.pyrewall.PyreParser.html#privex.pyrewall.PyreParser.parse_lines">[docs]</a>    <span class="k">def</span> <span class="nf">parse_lines</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lines</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Takes a ``List[str]`` of Pyre rules, and parses them into a list of IPv4 / IPv6 iptables-restore rules.</span>
+
+<span class="sd">        Outputs the resulting iptables-restore rules as a tuple of ``List[str]`` - in the format:</span>
+
+<span class="sd">        ``(v4_rules: List[str], v6_rules: List[str],)``</span>
+
+
+<span class="sd">        Basic usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; lines = [&#39;allow from 1.2.3.4/16&#39;, &#39;allow from 2a07:e00:abc::/48&#39;]</span>
+<span class="sd">            &gt;&gt;&gt; v4_rules, v6_rules = PyreParser().parse_lines(lines=lines)</span>
+<span class="sd">            &gt;&gt;&gt; print(v4_rules)</span>
+<span class="sd">            [&#39;*filter&#39;, &#39;:INPUT ACCEPT [0:0]&#39;, ...]</span>
+<span class="sd">            &gt;&gt;&gt; print(v6_rules)</span>
+<span class="sd">            [&#39;*filter&#39;, &#39;:INPUT ACCEPT [0:0]&#39;, ...]</span>
+
+
+<span class="sd">        :param List[str] lines: A ``List[str]`` of Pyre rules to parse</span>
+<span class="sd">        :return tuple rules: ``(v4_rules, v6_rules,)`` Each are iptables-restore compatible rules, as a ``List[str]``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">_line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_parse</span><span class="p">(</span><span class="n">_line</span><span class="p">)</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Finished parsing lines. Committing.&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">v4</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">v6</span></div>
+
+    <span class="k">def</span> <span class="nf">_parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">line</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parses an individual Pyre rule (``allow from x.x.x.x``) or control directive (``@table filter``) and fires</span>
+<span class="sd">        off the appropriate handling method required.</span>
+
+<span class="sd">        Doesn&#39;t do much by itself, Pyre rule&#39;s are simply passed to :py:meth:`RuleParser.parse`, while control</span>
+<span class="sd">        directives such as ``@table [name]`` are forwarded to the appropriate control handler defined in</span>
+<span class="sd">        :py:attr:`.control_handlers`</span>
+
+<span class="sd">        **NOTE:** This method does NOT return anything. For rendering Pyre configuration into iptables rules,</span>
+<span class="sd">        use a higher level method such as :py:meth:`.parse_lines` (takes a list of string lines), or</span>
+<span class="sd">        :py:meth:`.parse_file` (takes an absolute path to a ``.pyre`` file and parses it directly).</span>
+
+<span class="sd">        :param str line: An individual Pyre rule / control directive, e.g. ``allow from x.x.x.x`` or ``@table filter``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sline</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sline</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">sline</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;#&#39;</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Skipping empty line&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">[],</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">sline</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">control_handlers</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Detected control keyword &quot;</span><span class="si">%s</span><span class="s1">&quot; - passing to handler&#39;</span><span class="p">,</span> <span class="n">sline</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">control_handlers</span><span class="p">[</span><span class="n">sline</span><span class="p">[</span><span class="mi">0</span><span class="p">]](</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">sline</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+            <span class="k">return</span> <span class="p">[],</span> <span class="p">[]</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Passing line starting with &quot;</span><span class="si">%s</span><span class="s1">&quot; to RuleParser&#39;</span><span class="p">,</span> <span class="n">sline</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">v4_rules</span><span class="p">,</span> <span class="n">v6_rules</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rp</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">v4_rules</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">v6_rules</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">strict</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">UnknownKeyword</span><span class="p">(</span><span class="s1">&#39;(strict mode) Unknown keyword detected in pyre line...&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">v4</span> <span class="o">+=</span> <span class="n">v4_rules</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">v6</span> <span class="o">+=</span> <span class="n">v6_rules</span>
+
+        <span class="k">return</span> <span class="n">v4_rules</span><span class="p">,</span> <span class="n">v6_rules</span>
+
+<div class="viewcode-block" id="PyreParser.parse_file"><a class="viewcode-back" href="../../../code/privex.pyrewall.PyreParser.html#privex.pyrewall.PyreParser.parse_file">[docs]</a>    <span class="k">def</span> <span class="nf">parse_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parse a given ``.pyre`` file (absolute path!) into IPTables rules.</span>
+
+<span class="sd">        Returns the IPTables rules as a tuple containing two ``List[str]``s - the first containing the IPv4 rules,</span>
+<span class="sd">        and the second containing the IPv6 rules (or an empty list if there weren&#39;t any).</span>
+
+<span class="sd">            &gt;&gt;&gt; v4_rules, v6_rules = PyreParser().parse_file(&#39;/etc/pyre/test.pyre&#39;)</span>
+<span class="sd">            &gt;&gt;&gt; print(v4_rules)</span>
+<span class="sd">            [&#39;*filter&#39;, &#39;:INPUT DROP [0:0]&#39;, ...]</span>
+<span class="sd">            &gt;&gt;&gt; print(v6_rules)</span>
+<span class="sd">            [&#39;*filter&#39;, &#39;:INPUT DROP [0:0]&#39;, ...]</span>
+
+<span class="sd">        :param str path: The absolute path to the Pyre file, e.g. ``/etc/pyre/test.pyre``</span>
+<span class="sd">        :return tuple rules: ``(v4_rules, v6_rules,)`` Each are iptables-restore compatible rules, as a ``List[str]``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+            <span class="n">lines</span> <span class="o">=</span> <span class="n">fh</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_lines</span><span class="p">(</span><span class="n">lines</span><span class="o">=</span><span class="n">lines</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_commit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ipver</span><span class="o">=</span><span class="s1">&#39;v4&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Internal function used by :py:meth:`.commit` to commit rule cache into output - see commit&#39;s PyDoc block.&quot;&quot;&quot;</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Committing IP</span><span class="si">%s</span><span class="s1"> cache to output&#39;</span><span class="p">,</span> <span class="n">ipver</span><span class="p">)</span>
+        <span class="n">header</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="s1">&#39;*</span><span class="si">{self.table}</span><span class="s1">&#39;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">cname</span><span class="p">,</span> <span class="n">cdata</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">chains</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">header</span> <span class="o">+=</span> <span class="p">[</span><span class="n">f</span><span class="s1">&#39;:</span><span class="si">{cname}</span><span class="s1"> </span><span class="si">{cdata[0]}</span><span class="s1"> </span><span class="si">{cdata[1]}</span><span class="s1">&#39;</span><span class="p">]</span>
+        <span class="n">merged</span> <span class="o">=</span> <span class="n">header</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">ipver</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;COMMIT&#39;</span><span class="p">,</span> <span class="n">f</span><span class="s1">&#39;### End of table </span><span class="si">{self.table}</span><span class="s1"> ###&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="n">ipver</span><span class="p">]</span> <span class="o">+=</span> <span class="n">merged</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">ipver</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="PyreParser.commit"><a class="viewcode-back" href="../../../code/privex.pyrewall.PyreParser.html#privex.pyrewall.PyreParser.commit">[docs]</a>    <span class="k">def</span> <span class="nf">commit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        After an individual table has been parsed, :py:func:`.commit` is called, which:</span>
+
+<span class="sd">         - Prepends the ``*table`` and chain definition headers and appends the ``COMMIT``` statement to the rules</span>
+<span class="sd">         - Flushes the current IPv4 and IPv6 rules from :py:attr:`.cache` into :py:attr:`.output`</span>
+<span class="sd">         - Sets :py:attr:`.chains` to match the known chains for the current table, in-case the table has changed.</span>
+
+<span class="sd">        :param args:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">v4</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_commit</span><span class="p">(</span><span class="s1">&#39;v4&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">v6</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_commit</span><span class="p">(</span><span class="s1">&#39;v6&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">chains</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">DEFAULT_CHAINS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="p">,</span> <span class="p">{})</span></div>
+
+    <span class="c1">###</span>
+    <span class="c1"># Pyre Control Directive (e.g. ``@table``) handlers below.</span>
+    <span class="c1">#</span>
+    <span class="c1"># The below handling functions are designed to process the directive&#39;s arguments, and then take</span>
+    <span class="c1"># the appropriate action required to fulfill the directive&#39;s purpose.</span>
+    <span class="c1">###</span>
+
+<div class="viewcode-block" id="PyreParser.set_table"><a class="viewcode-back" href="../../../code/privex.pyrewall.PyreParser.html#privex.pyrewall.PyreParser.set_table">[docs]</a>    <span class="k">def</span> <span class="nf">set_table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Handler for ``@table [table_name]`` directive in ``.pyre`` files.&quot;&quot;&quot;</span>
+        <span class="n">table</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">table</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span> <span class="k">return</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Setting table to &quot;</span><span class="si">%s</span><span class="s1">&quot;&#39;</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">committed</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rp</span><span class="o">.</span><span class="n">table</span> <span class="o">=</span> <span class="n">table</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chains</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rp</span><span class="o">.</span><span class="n">chains</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">DEFAULT_CHAINS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="p">,</span> <span class="p">{}))</span></div>
+
+<div class="viewcode-block" id="PyreParser.set_chain"><a class="viewcode-back" href="../../../code/privex.pyrewall.PyreParser.html#privex.pyrewall.PyreParser.set_chain">[docs]</a>    <span class="k">def</span> <span class="nf">set_chain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Handler for ``@chain [chain_name] (policy) (packets)`` directive in ``.pyre`` files.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s1">&#39;set_chain expects at least one argument&#39;</span><span class="p">)</span>
+        <span class="n">chain</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">policy</span> <span class="o">=</span> <span class="s1">&#39;ACCEPT&#39;</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="k">else</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">packets</span> <span class="o">=</span> <span class="s1">&#39;[0:0]&#39;</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="k">else</span> <span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Setting chain </span><span class="si">%s</span><span class="s1"> to policy </span><span class="si">%s</span><span class="s1"> with packet counts &quot;</span><span class="si">%s</span><span class="s1">&quot;&#39;</span><span class="p">,</span> <span class="n">chain</span><span class="p">,</span> <span class="n">policy</span><span class="p">,</span> <span class="n">packets</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chains</span><span class="p">[</span><span class="n">chain</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rp</span><span class="o">.</span><span class="n">chains</span><span class="p">[</span><span class="n">chain</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">policy</span><span class="p">,</span> <span class="n">packets</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="PyreParser.import_file"><a class="viewcode-back" href="../../../code/privex.pyrewall.PyreParser.html#privex.pyrewall.PyreParser.import_file">[docs]</a>    <span class="k">def</span> <span class="nf">import_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Handler for ``@import [file]`` directive in ``.pyre`` files.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">_path</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">ext</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="n">_path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">ftype</span> <span class="o">=</span> <span class="n">EXTENSION_TYPES</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span> <span class="k">if</span> <span class="n">ext</span> <span class="ow">in</span> <span class="n">EXTENSION_TYPES</span> <span class="k">else</span> <span class="s1">&#39;pyre&#39;</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">_path</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">ftype</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">EXTENSION_TYPES</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;pyre&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s1">&#39;import_file expects at least one argument&#39;</span><span class="p">)</span>
+
+        <span class="n">path</span> <span class="o">=</span> <span class="n">find_file</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">_path</span><span class="p">,</span> <span class="n">paths</span><span class="o">=</span><span class="n">conf</span><span class="o">.</span><span class="n">SEARCH_DIRS</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="n">conf</span><span class="o">.</span><span class="n">SEARCH_EXTENSIONS</span><span class="p">)</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Importing </span><span class="si">%s</span><span class="s1"> file at </span><span class="si">%s</span><span class="s1"> ...&#39;</span><span class="p">,</span> <span class="n">ftype</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+            <span class="n">lines</span> <span class="o">=</span> <span class="n">fh</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;pyre&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;ip4&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">v4</span> <span class="o">+=</span> <span class="p">[</span><span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
+                <span class="k">if</span> <span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;ip6&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">v6</span> <span class="o">+=</span> <span class="p">[</span><span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Successfully imported &quot;</span><span class="si">%s</span><span class="s1">&quot; ...&#39;</span><span class="p">,</span> <span class="n">_path</span><span class="p">)</span></div>
+
+    <span class="n">control_handlers</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;@table&#39;</span><span class="p">:</span> <span class="n">set_table</span><span class="p">,</span>
+        <span class="s1">&#39;@chain&#39;</span><span class="p">:</span> <span class="n">set_chain</span><span class="p">,</span>
+        <span class="s1">&#39;@import&#39;</span><span class="p">:</span> <span class="n">import_file</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="sd">&quot;&quot;&quot;Maps each Pyre control directive such as ``@table`` to it&#39;s appropriate handling function&quot;&quot;&quot;</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Privex Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
